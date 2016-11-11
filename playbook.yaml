@@ -1,0 +1,31 @@
+---
+- name: Create a sandbox instance
+  hosts: localhost
+  gather_facts: False
+  vars:
+    keypair: id_rsa
+    instance_type: t2.micro
+    image: ami-a9d276c9
+    region: us-west-2
+  tasks:
+    - name: Launch Instance
+      ec2: 
+         key_name: "{{ keypair }}"
+         group: default
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+         aws_access_key: <KEY>
+         aws_secret_key: <KEY>
+      register: ec2
+
+    - name: Wait for port 22
+      wait_for:
+        state: started
+        host: " {{ ec2.instances[0].public_ip }}"
+        port: 22
+      when: ec2|changed
+
+    - name: Print all ec2 variables
+      debug: var=ec2.instances[0].public_ip
