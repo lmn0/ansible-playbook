@@ -12,7 +12,7 @@
       ec2_key:
         name: keypair
         region: us-east-2
-        key_material: "{{lookup('file','/home/ubuntu/ansible/key/keypair.pub')}}" 
+        key_material: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDrX7I/XI8knBqrQ5QYpzebfhDt73p9sGY/EOpYzILVCeg0G8jhNf/hyzGCoaDBv4BZv0rBHVS1WFA1KffYWjQ3v84MomfrF5GYEbfZTsIMB1mgoeRRLe7bE4Uz6zvfn1CtHNBtOzjpm3+NJUw8qHt3bQWEqlJ6S86PMOscR4y2fER/AvxG9Y2Wv8V1FbhqZMCgTOK9urZtMWC+acyDLz/9038ApA5h5AgVodtG8vYugwqHuMbnOAMl2YKThYgOKMYIHeXEN/hQXw8LRQbLUOXGE+djwMDXvNcGyt+iWOOpW4o4dOI3LczTxisuDKVSvDAbK3Dg1PX/QdT91AJmUiSQvtE7rqKRPG4PHm1N4ebsQoy2w3x8AzZUGkwKljaCu5/uui4KvLah7TnEQ3DXIrDyua/VcT58+sWinOEo+eXSBFRgqVnr4+R6XMW72hZRzr3fA+y8M+yOQJc3siv+UrEYyuNyFl8d/+cEq/WREcOaVh/xhUOYJnZTKQ7MHsHAgZmGmM6YBRCACJ7WHb4suu9wUc/q+CTt08dgO04N89WXBl0lTQ8j1cqIMSNKC5DLY5CA0aD0eTk+8I0cdbNuX6cJTJHBijU1fXXQ6vuVn30UCYG2J3MnHbaTNoPlM6q6wajWNZeCOyhvCsuyNiX/pXQFX9gRtchhNs+Ra6WEe8+p8Q== tjskrishna@gmail.com" 
     - name: Launch Instance
       ec2: 
          key_name: "{{ keypair }}"
@@ -21,6 +21,6 @@
          image: "{{ image }}"
          wait: true
          region: "{{ region }}"
-         aws_access_key: <ACCESSKEY>
-         aws_secret_key: <SECRETKEY>
+         aws_access_key: 
+         aws_secret_key: 
       register: ec2
