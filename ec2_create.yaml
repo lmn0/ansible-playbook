@@ -21,6 +21,6 @@
          image: "{{ image }}"
          wait: true
          region: "{{ region }}"
-         aws_access_key: 
-         aws_secret_key: 
+         aws_access_key: AKIAJXEGLURT7HLYQJHQ
+         aws_secret_key: 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
       register: ec2
